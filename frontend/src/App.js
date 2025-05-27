@@ -130,8 +130,8 @@ const App = () => {
     document.body.removeChild(link);
   };
 
-  // Catalog Selection View
-  if (currentStep === 'catalog') {
+  // Catalog Selection View (when no catalog is selected)
+  if (currentStep === 'catalog' && !selectedCatalog) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-purple-900 via-purple-800 to-indigo-900">
         {/* Header */}
@@ -204,8 +204,8 @@ const App = () => {
     );
   }
 
-  // Catalog Detail View
-  if (selectedCatalog && currentStep === 'catalog') {
+  // Catalog Detail View (when a catalog is selected)
+  if (currentStep === 'catalog' && selectedCatalog) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-purple-900 via-purple-800 to-indigo-900">
         <div className="container mx-auto px-6 py-8">
