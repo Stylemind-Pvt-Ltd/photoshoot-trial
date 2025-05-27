@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 
 const App = () => {
-  const [currentStep, setCurrentStep] = useState('catalog'); // catalog, upload, processing, results
+  const [currentStep, setCurrentStep] = useState('browse'); // browse, detail, upload, processing, results
   const [selectedCatalog, setSelectedCatalog] = useState(null);
   const [uploadedImage, setUploadedImage] = useState(null);
   const [processedImages, setProcessedImages] = useState([]);
@@ -68,6 +68,7 @@ const App = () => {
 
   const handleCatalogSelect = (catalog) => {
     setSelectedCatalog(catalog);
+    setCurrentStep('detail');
   };
 
   const handleFileUpload = (event) => {
