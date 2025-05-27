@@ -211,14 +211,17 @@ const App = () => {
     );
   }
 
-  // Catalog Detail View (when a catalog is selected)
-  if (currentStep === 'catalog' && selectedCatalog) {
+  // Catalog Detail View
+  if (currentStep === 'detail' && selectedCatalog) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-purple-900 via-purple-800 to-indigo-900">
         <div className="container mx-auto px-6 py-8">
           {/* Back Button */}
           <button
-            onClick={() => setSelectedCatalog(null)}
+            onClick={() => {
+              setCurrentStep('browse');
+              setSelectedCatalog(null);
+            }}
             className="mb-6 text-purple-300 hover:text-white transition-colors duration-300 flex items-center"
           >
             ← Back to Catalogs
