@@ -267,7 +267,7 @@ const App = () => {
         <div className="container mx-auto px-6 py-8">
           {/* Back Button */}
           <button
-            onClick={() => setCurrentStep('catalog')}
+            onClick={() => setCurrentStep('detail')}
             className="mb-6 text-purple-300 hover:text-white transition-colors duration-300 flex items-center"
           >
             ← Back to Catalog
