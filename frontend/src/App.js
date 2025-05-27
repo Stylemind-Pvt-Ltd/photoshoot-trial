@@ -115,7 +115,7 @@ const App = () => {
   };
 
   const resetApp = () => {
-    setCurrentStep('catalog');
+    setCurrentStep('browse');
     setSelectedCatalog(null);
     setUploadedImage(null);
     setProcessedImages([]);
@@ -131,8 +131,8 @@ const App = () => {
     document.body.removeChild(link);
   };
 
-  // Catalog Selection View (when no catalog is selected)
-  if (currentStep === 'catalog' && !selectedCatalog) {
+  // Catalog Browse View
+  if (currentStep === 'browse') {
     return (
       <div className="min-h-screen bg-gradient-to-br from-purple-900 via-purple-800 to-indigo-900">
         {/* Header */}
@@ -191,7 +191,13 @@ const App = () => {
                       <span className="text-purple-300 text-sm font-medium">
                         {catalog.images.length} Styles Available
                       </span>
-                      <button className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-2 rounded-full hover:from-purple-600 hover:to-pink-600 transition-all duration-300 hover:shadow-lg">
+                      <button 
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleCatalogSelect(catalog);
+                        }}
+                        className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-2 rounded-full hover:from-purple-600 hover:to-pink-600 transition-all duration-300 hover:shadow-lg"
+                      >
                         Select
                       </button>
                     </div>
